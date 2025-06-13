@@ -1,0 +1,83 @@
+{
+  "navbar": {
+    "register": "登録",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "welcome": "ようこそ",
+    "admin": "管理者",
+    "doctor": "先生",
+    "manageAssignments": "課題管理",
+    "manageUsers": "ユーザー管理", 
+    "patients": "患者",
+    "startPractice": "練習開始"
+  },
+  "auth": {
+    "login": "ログイン",
+    "register": "登録",
+    "username": "ユーザー名",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワード確認",
+    "fullName": "氏名",
+    "loginFailed": "ログインに失敗しました",
+    "registrationFailed": "登録に失敗しました",
+    "passwordsDoNotMatch": "パスワードが一致しません",
+    "usernameAlreadyTaken": "このユーザー名は既に使用されています",
+    "emailAlreadyRegistered": "このメールアドレスは既に登録されています"
+  },
+  "assignments": {
+    "topic1": "語想起（名詞）の改善をめざす",
+    "topic2": "意味・音韻面から語想起（名詞）の改善をめざす", 
+    "topic3": "動作・状態を表す語（動詞・形容詞・形容動詞）の改善をめざす",
+    "topic4": "漢字・仮名の改善をめざす",
+    "topic5": "文構成の改善をめざす",
+    "topic6": "長い文の理解の改善をめざす",
+    "topic7": "文作成と難しい語句の改善をめざす",
+    "topic8": "難しい内容表現の改善をめざす",
+    "topic9": "日常コミュニケーションの改善をめざす"
+  },
+  "landing": {
+    "title": "言語訓練を、もっと身近に",
+    "subtitle": "AIT-W は失語症改善テストと訓練を Web 上で提供するサービスです。\nパソコン、スマートフォン、タブレットでいつでもどこでも練習できます。",
+    "getStartedDesc": "まずは無料登録して、テストを始めましょう。",
+    "getStartedButton": "今すぐ登録",
+    "aboutDesc": "AIT-W のミッションや開発チームについてはこちら。",
+    "aboutButton": "私たちについて"
+  },
+  "landingFeatures": {
+    "title": "AIT-W を選ぶ理由",
+    "item1": "スマホ、タブレット、PC で失語症テスト",
+    "item2": "自動採点問題はその場でスコア表示",
+    "item3": "医師・療法士向けダッシュボードで進捗管理",
+    "item4": "クラウドで安全にデータを保護"
+  },
+  "landingSteps": {
+    "title": "ご利用の流れ",
+    "step1": "無料アカウントを作成",
+    "step2": "9 つのトピックから課題を選択",
+    "step3": "問題を解答して送信",
+    "step4": "自動採点結果を確認、または医師のレビューを待つ"
+  },
+  "landingMission": "言語リハビリを誰でもどこでも受けられる世界を目指しています。",
+  "username": "ユーザー名",
+  "email": "メールアドレス",
+  "firstName": "名",
+  "lastName": "姓",
+  "dateOfBirth": "生年月日",
+  "address": "住所",
+  "inspect": "詳細",
+  "save": "保存",
+  "saved": "保存しました",
+  "back": "戻る",
+  "role": "権限",
+  "user": "ユーザー",
+  "password": "パスワード",
+  "confirmPassword": "パスワード確認",
+  "noData": "データがありません",
+  "search": "検索",
+  "add": "追加",
+  "bound": "バインド",
+  "alreadyBound": "既にバインド済み",
+  "bounded": "担当医",
+  "unbounded": "未バインド"
+} 

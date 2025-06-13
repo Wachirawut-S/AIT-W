@@ -1,0 +1,25 @@
+# Dependency directories
+node_modules
+
+# Next.js build output
+.next
+out
+
+# Logs
+npm-debug.log*
+
+# VCS
+.git
+.gitignore
+
+# IDE/editor settings
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker related
+Dockerfile
+docker-compose.yml 

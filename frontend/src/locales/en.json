@@ -1,0 +1,83 @@
+{
+  "navbar": {
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "welcome": "Welcome",
+    "admin": "Admin",
+    "doctor": "Doctor",
+    "manageAssignments": "Manage Assignments",
+    "manageUsers": "Manage Users",
+    "patients": "Patients", 
+    "startPractice": "Start Practice"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register", 
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "loginFailed": "Login failed",
+    "registrationFailed": "Registration failed",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "usernameAlreadyTaken": "Username already taken",
+    "emailAlreadyRegistered": "Email already registered"
+  },
+  "assignments": {
+    "topic1": "Word Recall (Noun) Improvement",
+    "topic2": "Semantic/Phonetic Word Recall (Noun) Improvement",
+    "topic3": "Action/State Words (Verb/Adjective) Improvement", 
+    "topic4": "Kanji/Kana Improvement",
+    "topic5": "Sentence Structure Improvement",
+    "topic6": "Long Sentence Comprehension Improvement",
+    "topic7": "Sentence Creation and Difficult Vocabulary Improvement",
+    "topic8": "Complex Expression Improvement",
+    "topic9": "Daily Communication Improvement"
+  },
+  "landing": {
+    "title": "Language therapy made simple",
+    "subtitle": "AIT-W brings aphasia improvement tests and practice to the web. \n Train anytime, anywhere on your computer, phone or tablet.",
+    "getStartedDesc": "Create a free account and start your first test.",
+    "getStartedButton": "Register now",
+    "aboutDesc": "Learn more about AIT-W's mission and the team behind it.",
+    "aboutButton": "About us"
+  },
+  "landingFeatures": {
+    "title": "Why choose AIT-W?",
+    "item1": "Take aphasia tests on any device – phone, tablet or PC",
+    "item2": "Instant scoring for auto-graded exercises",
+    "item3": "Doctor dashboard to track patient progress",
+    "item4": "Secure, cloud-hosted and always available"
+  },
+  "landingSteps": {
+    "title": "How it works",
+    "step1": "Create a free account",
+    "step2": "Choose an assignment from 9 topics",
+    "step3": "Complete questions and submit",
+    "step4": "View your score or await doctor review"
+  },
+  "landingMission": "Our mission is to make language rehabilitation accessible to everyone, everywhere.",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "dateOfBirth": "Date of Birth",
+  "address": "Address",
+  "inspect": "Inspect",
+  "save": "Save",
+  "saved": "Saved successfully",
+  "back": "Back",
+  "role": "Role",
+  "user": "User",
+  "noData": "No data available",
+  "search": "Search",
+  "add": "Add",
+  "bounded": "Bounded To",
+  "unbounded": "Unbounded",
+  "bound": "Bind",
+  "alreadyBound": "Already bounded"
+} 

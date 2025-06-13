@@ -1,0 +1,138 @@
+This project is AIT-W (Amphasia Improve Test - WebApplication) The langue is Japanese
+The goal of this project.
+1. Patient can do the the test on any devices (computer, smart phone, tablet)
+2. Doctor can see patient progress
+3. This website is japanese Amphasia Improve test the website has 2 languege but the test still Japanese
+4. This project will deploy in Vercel
+5. This project will deploy for pubric acess please consider security protocol for protect answer key, user status others sensitives 
+6. Responsive and query request should be efficient and optimal bandwidth
+
+Using mint range color and white background as main theme of website and the windows, buttons using round squares for minimal looks
+
+System of this project everything will run on docker container
+1. Frontend using NextJS and Matherial UI
+2. Backend using Python FastAPI
+3. Database using PostgreSQL
+
+Assignments (Test or practice for patient)
+9 topics Assignment
+1. 語想起（名詞）の改善をめざす
+2. 意味・音韻面から語想起（名詞）の改善をめざす
+3. 動作・状態を表す語（動詞・形容詞・形容動詞）の改善をめざす
+4. 漢字・仮名の改善をめさす
+5. 文構成の改善をめざす
+6. 長い文の理解の改善をめさす
+7. 文作成と難しい語句の改善をめざす
+8. 難しい内容表現の改善をめざす
+9. 日常コミュニケーションの改善をめざす
+
+Authentication
+- Level 1 is admin 
+- level 2 is moderator (Doctor)
+- level 3 is user (Patient)
+
+The webapp will have navbar on the top of every pages
+on left hand will appear website logo, name of website
+on right site will appear [languege (Japan/ England icon)] [register button (register icon)] and [loggin (loggin icon)]
+the register button will bring user to register pages then fill in the imformation 
+examples username, email, name, surname, date of birth, age, adress, password, confirmpassword and others informations(Add more details for me)
+then submit to database the password must be encrypted by using api then redirect to login pages
+the login page user have to fill in email or user name then password to login
+
+The website have to store the username and status while user logged or using the webapp because some pages will have drifferent permission
+and somepages may use these variables 
+
+the navbar will appear drifferent text and buttons depen on user Authentication level
+After logged in for admin will show welcome text and 4 buttons on right hand side [Welcome, Admin (Username)] [ Manage Assignment (Assignment button) ] [ Manage users (gear icon) ] [languege (Japan/ England icon)] [log out (loggout icon)] 
+for moderator will show only welcome text and 3 buttons on right hand side [Welcome, Doctor (Username)] [ Patient (person icon)] [languege (Japan/ England icon)] [log out (loggout icon)] 
+for user or patient will show only welcome text and 2 buttons on right hand side [Welcome, (Username)] [languege (Japan/ England icon)] [log out (loggout icon)] 
+
+Manage Assignment page it's the test or practice for patient this page will be allow only admin to add the Assignments
+it's will show topics 1 to 9 when admin entered this page. admin have to select the assignments for adding new practice
+this will bring admin to another page of the selected topics the admin will see all assignments
+at the buttom of table admin will see add button to add new assignments
+
+For add a new assignment Admin will enter to editing page with text box to enter title and 3 buttons under the title 
+admin have to select one of these 3 buttons before adding the items
+drifferent 3 inputs
+- Multiple choices
+- Drag and drop
+- Writing
+After admin select the options
+
+For multiple choice  type this admin can manage property of the question then will effect all items
+property : Number of choice will effect choices of each items
+In text field of the questions or choices of each items at the back will have another buttons to add a picture
+After adding the details of each items admin have to select the answer key of each item before save
+every items will show in 1 page and user have to scroll down when doing the test
+
+    For using examples If admin set number of choices to 4 admin have to inputs text or picture to each choice. 
+for patient. they have to using mouse or finger to click or touch at the choice that they will select
+
+For Drag and drop type
+This page will have the words box on top of each items below the question of each items
+Each items will use 1 page
+the number of words in words box have to match to sub-items in that items
+
+    For using examples If this item has 4 words in words box. It's will has 4 sub-items
+user or patient patient will using mouse or finger depen on the device 
+if patient finished this item it's will have next button on bottom right of the pages and patient can change answer
+from previous question by using back button on bottom left (next button will change to submit button if it's last question and previous button will not show if it 's the first question)
+
+For Writing type
+This type admin can add text or picture in the question. admin have to fill in the correct answer before save
+every items will show in 1 page and user have to scroll down when doing the test
+property : review by admin or moderator
+if admin check this property the test will change from auto correct to review by admin or moderator
+
+If auto review admin has to inputs the anser in add answer key text field of each items before save
+If manual review the text field for inputs anser key will not appear
+
+    For using examples user or patient has to read the question and fill in the anwers
+
+After admin fill in all informations following each type of questions admin can save it to database 
+
+Manage user page will allow only admin can access this page
+admin can see uers table will show username name surname email and inspect button
+the inspect button will bring admin to inspect page can see user's informations of selected user 
+if user is doctor will show user's informations and all patient that this doctor is taking care
+if user is patient will show user's informations who is the doctor that taking care this patient
+admin can edit the user's informations username, email, name, surname, date of birth, age, adress
+
+Patient page will allow only moderator can access this page and show the patient only this user taking care of
+moderator can click add patient then search from database by using API the table will show only patient at last column of table will be add button to add selected patient
+atfer click add Patient will redirect to patient informations 
+About patient informations moderator or doctor can see the patient progession and history of assignments
+moderator or doctor can review the assignments if it's the assignments can have various of answer or cannot check by automate system
+
+For Patient After loggin on left side of navbar will appear Start practice button wil show the Assignments page
+and history(clock with reverse arrow icon) button
+
+History button wil bring user to see Done Assignment history of the user. User can select to see then will pop up a window to user to see user's answer
+and the correct answer if patient answer correct will higlight green on that row if it's worng will higlight red on that row
+some Assignment may have to review by doctor or moderator before to see history of that assignments
+
+Assignments page will show the progession bar of user patient how many topics that he or she already done in the Assignments
+All topics 1 to 9 user can click at the topics that they want to do then bring user to select the topics page 
+to see the Assignments in each topics. Each Assignments will show a mark if patient done it and the button will show start if patient havn't done it
+if patient done it or pass the assignments it's will show redo button insteed start button
+
+Test pages Patient has to do every questions before submit (references of the form are google forms and microsoft forms)
+If it is auto review (Multiple choice, Drag and Drop, Writing(if property has auto review)) will review the test by system 
+after submit will bring to score page to show the score and all the test items if it's correct will appear green higlight if it false will highlight with red and show the correct anser 
+If it is manual review this will be review by moderator or doctor 
+after submit will bring to score page but it's will not show score and correct answer. it's will show only all the test items
+
+For review page the test by modurator or doctor. it's will show likes test page but text file for answer will change to the answer of the patient that
+doctor or moderator selected to review. this page moderator or doctor have to check the box at the back of the answer.
+
+Basic Database require 
+User table for User's informations
+Test table for Keeping the tests (This should keep admin name who's input the test)
+Records table for Keeping user's test record (This table should keep the users name of patient, reviewer)
+others table that this Web WebApplication needed
+
+every table should has thier own ids for primary key of each table, timestamps and others basic informations if needed 
+
+Please check the logic that everything compatible to each others system. API endpoint, Database, Frontend and others related soaftware
+If you have recommend improvements, better solutions, UX and UI design and functions for me please tell me or ask me to add it. 
