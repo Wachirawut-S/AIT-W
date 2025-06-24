@@ -6,7 +6,6 @@ Full-stack, bilingual (EN/JA) rehab platform – FastAPI + PostgreSQL + Next.js/
 
 ## 1 Front-End (Next.js 15 + MUI)
 
-```
 src/
 ├─ app/                      ← Next “app router” pages
 │   ├─ (public routes)       ← login, register, landing, about
@@ -25,7 +24,6 @@ src/
 ├─ locales/                  ← en.json / ja.json
 ├─ utils/                    ← api.ts (Axios) / getImageUrl.ts
 └─ theme.ts                  ← MUI theme defaults
-```
 
 ### Build & Tooling
     ESLint (Next preset) + @typescript-eslint, strict mode
@@ -35,7 +33,6 @@ src/
 
 ## 2 Back-End (FastAPI + SQLAlchemy 2 async)
 
-```
 app/
 ├─ main.py                   ← FastAPI instance, startup tables
 ├─ core/
@@ -55,7 +52,6 @@ app/
 │   ├─ patient.py
 │   └─ auth.py (optional)
 └─ utils/                    ← images (Pillow&WebP), hashing, etc.
-```
 
 ### Important Python Packaces
     fastapi             Responsive REST framework
@@ -71,7 +67,6 @@ app/
 ## 3 Database (PostgreSQL 14+)
 ### Logical schema (all FK ON DELETE CASCADE):
 
-```
 users (admin/doctor/patient)
 │
 ├─< doctor_patient_bindings  (audit log)
@@ -83,7 +78,6 @@ assignment_items_base ─1:1─ mcq_items | writing_items | drag_items | writing
 assignment_record (multi attempt)
      ├─< mcq_answer
      └─< writing_answer  (record_id,item_id unique)
-```
 
 Highlights
     Typed-table design: one generic row per question, specialised tables keep extra fields.
@@ -93,12 +87,10 @@ Highlights
     Dev-migration code auto-adds new columns/FKs when running in Docker.
 Runtime topology
 
-```
 ┌──────────────┐   HTTP/JSON   ┌─────────────┐   TCP/5432    ┌──────────────┐
 │ Next.js App  │◀────────────▶│  FastAPI    │◀────────────▶│ PostgreSQL15 │
 │  (3000)      │   (Bearer)    │  (8000)     │               │   (db)       │
 └──────────────┘               └─────────────┘               └──────────────┘
-```
 
 ---
 ## 1  Front-end  `/frontend`
