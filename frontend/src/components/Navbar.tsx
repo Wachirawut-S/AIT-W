@@ -44,7 +44,7 @@ const Navbar = () => {
         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1, cursor: "pointer" }} onClick={() => router.push("/")}> 
           <Image src="/AITW.png" alt="AITW Logo" width={40} height={40} style={{ marginRight: 8 }} />
           <Typography variant="h6" sx={{ fontWeight: "bold", color: "primary.main" }}>
-            AMPHASIA IMPROVE TEST
+            APHASIA IMPROVE TEST
           </Typography>
         </Box>
 
