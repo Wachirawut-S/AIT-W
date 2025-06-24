@@ -5,7 +5,7 @@ import jaTranslations from "../locales/ja.json";
 import enTranslations from "../locales/en.json";
 
 type Locale = "ja" | "en";
-type Translations = typeof jaTranslations;
+type Translations = Record<string, unknown>;
 
 interface LanguageContextProps {
   locale: Locale;

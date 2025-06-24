@@ -1,7 +1,6 @@
 "use client";
 
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import theme from "../theme";
+import { ThemeModeProvider } from "../context/ThemeContext";
 import { AuthProvider } from "../context/AuthContext";
 import { LanguageProvider } from "../context/LanguageContext";
 import { ReactNode } from "react";
@@ -9,10 +8,9 @@ import { ReactNode } from "react";
 const Providers = ({ children }: { children: ReactNode }) => (
   <LanguageProvider>
     <AuthProvider>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+      <ThemeModeProvider>
         {children}
-      </ThemeProvider>
+      </ThemeModeProvider>
     </AuthProvider>
   </LanguageProvider>
 );

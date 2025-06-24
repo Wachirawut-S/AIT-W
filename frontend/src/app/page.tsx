@@ -7,11 +7,13 @@ import { useLanguage } from "../context/LanguageContext";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTheme } from "@mui/material/styles";
 
 export default function Home() {
   const router = useRouter();
   const { t } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
+  const theme = useTheme();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -72,7 +74,7 @@ export default function Home() {
              justifyContent: "center",
              minHeight: { xs: 600, md: 700 },
              overflow: "hidden",
-             backgroundColor: "white",
+             backgroundColor: theme.palette.mode === "light" ? "#ffffff" : theme.palette.background.default,
            }}
          >
           
@@ -90,7 +92,7 @@ export default function Home() {
               src="/AITW.png"
               alt="AITW"
               fill
-              style={{ objectFit: "cover", opacity: 0.15 }}
+              style={{ objectFit: "cover", opacity: theme.palette.mode === "light" ? 0.15 : 0.05 }}
               priority
             />
           </div>
@@ -254,29 +256,31 @@ export default function Home() {
         transition={{ duration: 0.8 }}
       >
         <Box sx={{ position: "relative", py: 8, overflow: "hidden" }}>
-          {/* Animated gradient background */}
-          <motion.div
-            animate={{
-              background: [
-                "linear-gradient(135deg, #f5f5f5, #e3f2fd, #f5f5f5)",
-                "linear-gradient(135deg, #e3f2fd, #f3e5f5, #e3f2fd)",
-                "linear-gradient(135deg, #f3e5f5, #f5f5f5, #f3e5f5)",
-                "linear-gradient(135deg, #f5f5f5, #e3f2fd, #f5f5f5)",
-              ],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-            }}
-          />
+          {/* Animated gradient background only in light mode */}
+          {theme.palette.mode === "light" && (
+            <motion.div
+              animate={{
+                background: [
+                  "linear-gradient(135deg, #f5f5f5, #e3f2fd, #f5f5f5)",
+                  "linear-gradient(135deg, #e3f2fd, #f3e5f5, #e3f2fd)",
+                  "linear-gradient(135deg, #f3e5f5, #f5f5f5, #f3e5f5)",
+                  "linear-gradient(135deg, #f5f5f5, #e3f2fd, #f5f5f5)",
+                ],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+              }}
+            />
+          )}
           
           <Container sx={{ textAlign: "center", maxWidth: 800, position: "relative", zIndex: 1 }}>
             <motion.div
@@ -328,9 +332,9 @@ export default function Home() {
        </motion.div>
 
        {/* Footer */}
-       <Box sx={{ backgroundColor: "#f9f9f9", py: 3, mt: 4 }}>
+       <Box sx={{ backgroundColor: theme.palette.mode === "light" ? "#f9f9f9" : theme.palette.grey[900], py: 3, mt: 4 }}>
          <Container sx={{ textAlign: "center" }}>
-           <Typography variant="body2" color="text.secondary">
+           <Typography variant="body2" color={theme.palette.mode === "light" ? "text.secondary" : "grey.400"}>
              © {new Date().getFullYear()} AIT-W. All rights reserved.
            </Typography>
          </Container>
