@@ -45,18 +45,26 @@ const RegisterPage = () => {
       });
       router.push("/login");
     } catch (err: unknown) {
-      const backendError = (err as AxiosError<{ detail?: string }>)?.response?.data?.detail;
+      // Use a typed AxiosError instead of `any` to satisfy ESLint
+      type BackendError = { detail?: unknown };
+      const axiosError = err as AxiosError<BackendError>;
+      const detail = axiosError?.response?.data?.detail;
       let translatedError: string;
-      
-      // Translate specific backend error messages
-      if (backendError === "Username already taken") {
+
+      // Specific backend error strings we translate directly
+      if (detail === "Username already taken") {
         translatedError = t("auth.usernameAlreadyTaken");
-      } else if (backendError === "Email already registered") {
+      } else if (detail === "Email already registered") {
         translatedError = t("auth.emailAlreadyRegistered");
+      } else if (Array.isArray(detail)) {
+        // FastAPI validation errors come back as a list → collect the messages
+        translatedError = detail.map((d: { msg?: string }) => d.msg).filter(Boolean).join("\n");
+      } else if (typeof detail === "string") {
+        translatedError = detail;
       } else {
-        translatedError = backendError ?? t("auth.registrationFailed");
+        translatedError = t("auth.registrationFailed");
       }
-      
+
       setError(translatedError);
     }
   };
