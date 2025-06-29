@@ -3,6 +3,9 @@ from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import text
+from sqlalchemy.exc import OperationalError
+import asyncio
+import logging
 
 from .core.config import settings
 from .models import Base
@@ -27,6 +30,9 @@ async def init_models() -> None:
     prototypes this ensures the schema is up to date after the container
     starts.
     """
+    # Wait until PostgreSQL is fully ready (e.g., after crash recovery).
+    await _wait_for_db()
+
     async with engine.begin() as conn:
         # Create tables that don't exist yet
         await conn.run_sync(Base.metadata.create_all)
@@ -99,4 +105,31 @@ async def init_models() -> None:
                 ON DELETE CASCADE;
                 """
             )
-        ) 
+        )
+
+# ---------------------------------------------------------------------------
+# Helper: Wait for database readiness
+# ---------------------------------------------------------------------------
+
+async def _wait_for_db(max_attempts: int = 10, delay: float = 2.0) -> None:
+    """Ping the database until it is ready for connections.
+
+    This prevents container start-up failures caused by PostgreSQL still
+    recovering ("the database system is starting up"). The function performs
+    an exponential back-off between attempts.
+    """
+
+    attempt = 0
+    while attempt < max_attempts:
+        try:
+            async with engine.begin() as conn:
+                await conn.execute(text("SELECT 1"))
+            logging.info("Database is ready after %s attempt(s)", attempt + 1)
+            return
+        except OperationalError as exc:
+            logging.warning("Database not ready (%s). Retrying in %.1f s…", exc, delay)
+            await asyncio.sleep(delay)
+            attempt += 1
+            delay *= 1.5  # exponential back-off
+
+    raise RuntimeError("Database is still unavailable after %d attempts" % max_attempts) 
